@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+void increment(float *salary) { 
+    *salary = *salary + (0.20) * (*salary);
+}
+
+int main() {
+    float salary, Completed1Year, ResearchProject, NewResearch, profit;
+    int condition = 0;
+
+    cout << "Enter Employee Details!" << "\n";
+    cout << "Current Salary: ";
+    cin >> salary;
+    cout << "Working Years in company: ";
+    cin >> Completed1Year;
+    cout << "How many research projects have you completed: ";
+    cin >> ResearchProject;
+    cout << "Do you have any research project in pipeline (Yes=1/No=0): ";
+    cin >> NewResearch;
+    cout << "Profit to company: ";
+    cin >> profit;
+
+    if (Completed1Year >= 1) {
+        condition++;
+    }
+    if (ResearchProject >= 1) {
+        condition++;
+    }
+    if (NewResearch == 1) {
+        condition++;
+    }
+    if (profit >= 100000) {
+        condition++;
+    }
+
+    if (condition >= 3) {
+        increment(&salary); 
+        cout << "The Incremented salary: " << salary;
+    } else {
+        cout << "No increment applied. Salary remains: " << salary;
+    }
+
+    return 0;
+}
+//output
+Enter Employee Details!
+Current Salary: 70000
+Working Years in company: 2
+How many research projects have you completed: 
+2
+Do you have any research project in pipeline (Yes=1/No=0): 1
+Profit to company: 
+23456
+The Incremented salary: 84000
